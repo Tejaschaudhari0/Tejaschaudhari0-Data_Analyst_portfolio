@@ -1,0 +1,1095 @@
+:root{
+    --primary-color: #9333ea;
+    --hover-color:#7928ca;
+    --text-color:white;
+    --transition-speed:0.3s ;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background: #f5f5f5;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.gradient-text {
+    background: linear-gradient(130deg, #9333ea, #ff0000); /* Gradient */
+    background-clip: text; /* Standard property */
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the background gradient visible */
+    font-size: 3rem; /* Example text size */
+    font-weight: bold; /* Optional for better appearance */
+    text-align: center;
+
+}
+
+.heading-text{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(130deg, #9333ea, #ff0000);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed);
+}
+
+.navbar.scrolled {
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+}
+
+/* Logo Styling */
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar .logo {
+    max-height: 70px;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+/* Nav Links Styling */
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style-type: none;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(225, 225, 225, 0.9);
+    transition: color var(--transition-speed) ease;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    position: relative;
+    font-size: large;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-color);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile Menu Styling */
+@media (max-width: 896px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--primary-color);
+        padding: 1rem;
+        gap: 1rem;
+        transform: translateY(-10px);
+        transition: all var(--transition-speed) ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+}
+
+/* Navbar on Scroll - Shrinking */
+@media (max-width: 1024px) {
+    .navbar.scrolled {
+        padding: 0.8rem 2rem;
+    }
+
+    .nav-links {
+        gap: 2rem;
+    }
+}
+
+/* Enhance Navbar for larger screens (greater than 1024px) */
+@media (min-width: 1100px) {
+    .navbar {
+        padding: 1.2rem 3rem;
+    }
+
+    .nav-links {
+        gap: 4rem;
+    }
+}
+
+
+/* home code  */
+
+/* Hero Section Styling */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(130deg, #9333ea, #ff0000);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.hero-info {
+    max-width: 800px;
+    color: white;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+.hero-info h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-info p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.hero-info h1 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.con-btn {
+    display: inline-block;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: #9333ea;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.con-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Image Styling */
+.hero-img {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    max-width: 600px;
+    z-index: 1;
+}
+
+.hero-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Query for Tablet and Smaller Screens */
+@media (max-width: 1278px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 1rem;
+        height: auto;
+        min-height: auto;
+    }
+
+    .hero-info {
+        margin: 0 auto;
+        margin-top: 4rem;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .hero-info h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-info h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-info p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 auto;
+    }
+
+    .con-btn {
+        padding: 0.87rem 1.75rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-img {
+        position: relative;
+        width: 85%;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 2rem auto 0;
+        max-width: 450px;
+    }
+
+    .hero-img img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* About Me Section code */
+
+.about {
+    background: #f4ecfc;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+    padding: 6rem 2rem;
+    gap: 2rem; /* Adds space between image and text */
+    overflow: hidden;
+}
+
+.about-information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Left Image Section */
+.about-img {
+    position: relative;
+    width: 30%;
+    max-width: 600px;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Slight rounding for aesthetics */
+}
+
+/* Right Content Section */
+.about-me-info {
+    max-width: 800px;
+    z-index: 1;
+    padding: 1rem;
+}
+
+.about-me-info h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.about-me-info p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Profile Information Section */
+.about-section-info-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(130deg, rgba(146, 51, 234, 0.168), rgba(255, 0, 0, 0.168));
+
+}
+
+.about-section-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000000;
+    padding: 0.75rem 0;
+}
+
+.about-section-info:last-child {
+    border-bottom: none;
+}
+
+.about-section-info .label {
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    min-width: 150px;
+}
+
+.about-section-info .value {
+    flex: 2;
+    color: #000;
+    text-align: left;
+}
+
+/* Responsive Adjustments */
+
+/* For max-width: 1250px */
+
+/* For Larger Screens (max-width: 1250px) */
+@media (max-width: 1250px) {
+    .about-heading{
+        margin-top: 2rem;
+    }
+    .about-me-info h2 {
+        font-size: 2.5rem; /* Reduce heading size */
+    }
+
+    .about-me-info p {
+        font-size: 1.1rem; /* Reduce paragraph text size */
+        line-height: 1.4;
+    }
+
+    .about-img {
+        width: 28%; /* Adjust image width to stay proportional */
+        max-width: 350px; /* Ensure image doesn't grow too large */
+    }
+
+    .about-img img {
+        width: 300px; /* Image remains responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* For Tablets and Smaller Screens (max-width: 992px) */
+@media (max-width: 992px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 1rem;
+        gap: 2.5rem;
+    }
+    .about-information {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .about-img {
+        width: 50%; /* Adjust image width for better scaling */
+        max-width: 400px;
+        margin: 0 auto; /* Center image */
+        margin-top: 2rem;
+    }
+
+    .about-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-me-info h2 {
+        font-size: 2.25rem; /* Slightly smaller heading */
+        margin-bottom: 1rem;
+    }
+
+    .about-me-info p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-section-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-section-info .label,
+    .about-section-info .value {
+        text-align: center;
+        padding: 0.2rem 0;
+    }
+}
+
+/* For Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .about-information {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .about-img {
+        width: 60%; /* Slightly increase image width for better visibility */
+        max-width: 350px;
+        margin: 0 auto 1rem; /* Center and add spacing */
+        margin-top: 2rem;
+    }
+
+    .about-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-me-info h2 {
+        font-size: 2rem; /* Reduce heading size */
+    }
+
+    .about-me-info p {
+        font-size: 1rem; /* Adjust paragraph size */
+        line-height: 1.4;
+    }
+
+    .about-section-info-profile {
+        padding: 1.5rem;
+        gap: 0.75rem;
+    }
+}
+
+/* For Smallest Devices (max-width: 576px) */
+@media (max-width: 576px) {
+    .about-img {
+        width: 80%; /* Increase width for better fit */
+        max-width: 300px; /* Keep max width controlled */
+        margin: 0 auto 1.5rem; /* Center and space out image */
+        margin-top: 2rem;
+    }
+
+    .about-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-me-info h2 {
+        font-size: 1.75rem; /* Smaller heading size for smaller devices */
+    }
+
+    .about-me-info p {
+        font-size: 0.95rem; /* Adjust paragraph size */
+    }
+
+    .about-section-info-profile {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+}
+
+
+/* Resune section code */
+
+
+.info{
+    background: #f4ecfc;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+    padding: 6rem 2rem;
+    overflow: hidden;
+}
+
+.info-my{
+    text-align: center;
+    margin: 2rem o;
+}
+
+.info-my h2{
+
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+
+}
+
+.info-my p{
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: 0% 4rem;
+}
+
+@media (max-width: 768px) {
+    .info-my h2 {
+        font-size: 2.5rem; /* Reduce heading size on smaller screens */
+    }
+
+    .info-my p {
+        font-size: 1rem; /* Reduce paragraph font size */
+        padding: 0% 2rem; /* Adjust padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .info-my h2 {
+        font-size: 2rem; /* Further reduce heading size for very small screens */
+    }
+
+    .info-my p {
+        font-size: 0.9rem; /* Smaller font for the paragraph on very small screens */
+        padding: 0% 1rem; /* Even smaller padding */
+    }
+}
+
+
+#two {
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 3rem;
+    border-bottom: 1px solid black;
+    font-size: 2rem;
+}
+
+/* Experience  */
+
+.experience {
+    margin-top: 3rem;
+}
+
+.experience-head {
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 3rem;
+    border-bottom: 1px solid black;
+    font-size: 2rem;
+}
+
+.experience-info {
+    background: linear-gradient(130deg, #9333ea, #ff0000);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.experience-details span{
+    margin-left: 2rem;
+}
+
+.experience-info-1 {
+    flex: 1; /* Takes up remaining space */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.experience-year {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.experience-info p {
+    margin: 1rem 0;
+    line-height: 1.8rem;
+}
+
+.experience-info ul {
+    margin-left: 1.5rem;
+    line-height: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .experience-details {
+        flex-direction: column; /* Stack year and title vertically */
+        text-align: center;
+    }
+
+    .experience-info ul {
+        margin-left: 0; /* Align the list to the center */
+    }
+}
+
+/* educcation  */
+
+.education {
+    margin-top: 3rem;
+}
+
+/* Flexbox for the container */
+.education-info {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Ensures equal height */
+    gap: 2rem; /* Space between the two divs */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    line-height: 2rem;
+}
+
+/* Common Styling for both boxes */
+.education-1, .education-2 {
+    background: linear-gradient(130deg, #9333ea, #ff0000);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    flex: 1; /* Equal width */
+    min-width: 300px; /* Minimum width for smaller screens */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for a modern look */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-info {
+        flex-direction: column; /* Stack vertically on smaller screens */
+    }
+    .education-1, .education-2 {
+        width: 100%; /* Take full width on small screens */
+    }
+}
+
+
+/* project section code */
+
+.project-info{
+    background: #f4ecfc;
+    min-height: 100vh;
+    position: relative;
+    color: black;
+    padding: 6rem 2rem;
+    overflow: hidden;
+
+}
+
+.project-info h2{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.project-info h3{
+    text-align: center;
+    font-size: 1.5rem;
+    
+}
+
+
+/* my  projects  code */
+
+.my-projects {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into the next line */
+    justify-content: center; /* Center align the content */
+    gap: 2rem; /* Add spacing between the items */
+    text-align: center;
+    margin: 3rem 5rem 0 5rem;
+
+}
+
+.proj-info-1 {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for child items */
+    justify-content: center; /* Center the items */
+    gap: 2rem; /* Spacing between projects */
+}
+
+.proj-info {
+    background: linear-gradient(130deg, rgba(147, 51, 234, 0.5), rgba(255, 0, 0, 0.5));
+ /* Light background for the project cards */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    flex: 1 1 calc(50% - 2rem); /* 50% width for each project minus spacing */
+    box-sizing: border-box;
+    max-width: calc(50% - 2rem); /* Ensure two items per row */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content */
+    text-align: center;
+    color: black;
+    
+}
+
+.proj-info h3{
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+.proj-info h3 a{
+    text-decoration: none;
+    color: var(--hover-color);
+}
+
+.proj-info h3 a:hover{
+    color: #ff0000;
+}
+
+.proj-info img {
+    width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.proj-info img:hover{
+    transform: scale(1.1);
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .my-projects{
+        margin: auto;
+        margin-top: 3rem;
+    }
+    .proj-info {
+        flex: 1 1 calc(100% - 2rem); /* Full width for smaller screens */
+        max-width: calc(100% - 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .proj-info {
+        padding: 1rem; /* Reduce padding on very small screens */
+    }
+
+    .proj-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .proj-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width:950px){
+    .my-projects{
+        margin: auto;
+        margin-top: 3rem;
+    }
+}
+
+/* Certification section code */
+
+.Certificates{
+    background: linear-gradient(130deg, #9333ea, #ff0000);
+    min-height: 100vh;
+    position: relative;
+    color: white;
+    padding: 6rem 2rem;
+    overflow: hidden;
+
+}
+
+.certi {
+    margin: 0 auto; /* Center the div horizontally */
+    max-width: 800px; /* Set a max width for better readability */
+    padding: 1rem; /* Add some padding for spacing */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-weight: bold;
+}
+
+.certi-info ul {
+    margin-top: 3rem; /* Adjust spacing at the top */
+    
+    line-height: 2rem; /* Increase line spacing */
+    padding: 0; /* Remove default padding */
+    
+}
+
+.certi-info ul li {
+    margin-bottom: 1rem; /* Add spacing between items */
+}
+
+.certi-info ul li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Default link color */
+    font-size: 1rem; /* Standard font size */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.certi-info ul li a:hover {
+    color: black; /* Highlight color on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certi {
+        margin-left: 1rem; /* Add spacing on smaller screens */
+        margin-right: 1rem;
+    }
+    
+    .certi-info ul {
+        line-height: 1.8rem; /* Slightly reduce line spacing for smaller screens */
+    }
+}
+
+/* contact section */
+
+.contact {
+    min-height: 80vh;
+    position: relative;
+    color: black;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}
+
+.contact-info h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+#one {
+    text-align: center;
+    margin-bottom: 5rem;
+    font-size: 1.5rem;
+}
+
+.contact-me {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 5rem 0 5rem;
+    text-align: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 2rem; /* Add spacing between items */
+}
+
+.contact-me i {
+    font-size: 50px;
+    background: linear-gradient(130deg, rgba(147, 51, 234, 0.5), rgba(255, 0, 0, 0.5));
+    border-radius: 50%; /* Circle shape */
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 1.5rem;
+    line-height: 100px; /* Center the icon vertically */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
+}
+
+.contact-me i:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    background: linear-gradient(130deg, rgba(147, 51, 234, 0.8), rgba(255, 0, 0, 0.8)); /* Darken gradient on hover */
+}
+
+.contact-me h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-me h4 a {
+    text-decoration: none;
+    color: #8c4dcb;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.contact-me h4:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.contact-me h4 a:hover {
+    color: #ff0000;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller devices (max-width: 992px) */
+@media (max-width: 900px) {
+    .contact-me {
+        flex-direction: column; /* Stack items vertically */
+        gap: 2rem; /* Add spacing between items */
+    }
+
+    .contact-me i {
+        font-size: 40px; /* Reduce icon size */
+        width: 80px;
+        height: 80px;
+        line-height: 80px; /* Center icons */
+    }
+
+    .contact-me h3 {
+        font-size: 1.25rem; /* Reduce heading size */
+    }
+
+    .contact-me h4 a {
+        font-size: 1rem; /* Adjust link font size */
+    }
+}
+
+/* For mobile devices (max-width: 576px) */
+@media (max-width: 576px) {
+    .contact {
+        padding: 4rem 1rem; /* Reduce padding */
+    }
+
+    .contact-me i {
+        font-size: 35px; /* Further reduce icon size */
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .contact-me h3 {
+        font-size: 1rem;
+    }
+
+    .contact-me h4 a {
+        font-size: 0.9rem; /* Compact text size */
+    }
+}
+
+
+/* Footer section */
+
+
+footer {
+    background: linear-gradient(130deg, #9333ea, #ff0000); /* Attractive gradient background */
+    min-height: 25vh;
+    color: white;
+    padding: 2rem 1rem; /* Padding added for better spacing */
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.social-icons i {
+    padding: 0 1rem 1rem 1rem;
+    color: black;
+    transition: color 0.3s ease, transform 0.3s ease; /* Add smooth hover effects */
+}
+
+.social-icons i:hover {
+    color: white; /* Change color on hover */
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.footer-container {
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 1rem; /* Ensure font size scales on smaller screens */
+}
+
+.footer-container i {
+    font-size: 1.5rem;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For tablets and smaller devices (max-width: 992px) */
+@media (max-width: 992px) {
+    footer {
+        padding: 1.5rem 1rem; /* Reduce padding */
+        min-height: 20vh; /* Reduce height for smaller screens */
+    }
+
+    .social-icons i {
+        padding: 0.5rem;
+        font-size: 1.5rem; /* Adjust icon size */
+    }
+
+    .footer-container {
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .social-icons {
+        font-size: 1.5rem; /* Reduce overall size */
+    }
+
+    .social-icons i {
+        padding: 0.3rem;
+        font-size: 1.5rem; /* Smaller icons */
+    }
+
+    .footer-container {
+        font-size: 0.8rem;
+        line-height: 1.2rem; /* Adjust line height */
+    }
+}
+
+/* For smallest devices (max-width: 576px) */
+@media (max-width: 576px) {
+    footer {
+        padding: 1rem; /* Compact padding for very small devices */
+        min-height: 15vh; /* Further reduce height */
+    }
+
+    .social-icons i {
+        font-size: 1.5rem; /* Compact icon size */
+        padding: 0.2rem;
+    }
+
+    .footer-container {
+        font-size: 0.75rem; /* Compact text size */
+    }
+}
